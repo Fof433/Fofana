@@ -135,10 +135,11 @@
                     <a href="https://wa.me/2250586717452" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
-            <form class="contact-form reveal">
-                <input type="text" placeholder="Votre Nom" required>
-                <input type="email" placeholder="Votre Email" required>
-                <textarea rows="5" placeholder="Votre Message" required></textarea>
+            <form id="contact-form" class="contact-form reveal" novalidate>
+                <input id="contact-name" name="name" type="text" placeholder="Votre Nom" required>
+                <input id="contact-email" name="email" type="email" placeholder="Votre Email" required>
+                <textarea id="contact-message" name="message" rows="5" placeholder="Votre Message" required></textarea>
+                <div id="contact-feedback" role="status" aria-live="polite" class="contact-feedback" aria-atomic="true"></div>
                 <button type="submit" class="btn-submit">Envoyer</button>
             </form>
         </div>
@@ -160,12 +161,11 @@
                 <span class="reassurance-item">Satisfaction garantie</span>
             </div>
         </div>
-            <div class="footer-legal">
-                <p>&copy; 2026 « Site créé par El Moustapha Fofana » — Contact : +225 0584442211</p>
-            </div>
-            <div class="footer-social">
-                <!-- Social icons removed as requested -->
-            </div>
+        <div class="footer-legal">
+            <p>&copy; 2026 « Site créé par El Moustapha Fofana » — <em>Contact : +225 0584442211</em></p>
+        </div>
+        <div class="footer-social">
+            <!-- Social icons removed as requested -->
         </div>
     </footer>
 
