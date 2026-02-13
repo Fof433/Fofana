@@ -140,4 +140,51 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         });
     }
+
+    // Contact form — ouvre le client mail du visiteur et affiche un feedback
+    const contactForm = document.getElementById('contact-form');
+    const contactFeedback = document.getElementById('contact-feedback');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('contact-name')?.value.trim() || '';
+            const email = document.getElementById('contact-email')?.value.trim() || '';
+            const message = document.getElementById('contact-message')?.value.trim() || '';
+
+            const show = (msg, type = 'error') => {
+                if (contactFeedback) {
+                    contactFeedback.textContent = msg;
+                    contactFeedback.classList.remove('success', 'error');
+                    contactFeedback.classList.add(type);
+                } else {
+                    alert(msg);
+                }
+            };
+
+            if (!name || !email || !message) {
+                show('Merci de remplir tous les champs.', 'error');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                show("L'adresse e-mail n'est pas valide.", 'error');
+                return;
+            }
+
+            const owner = 'elianefatifofana@gmail.com';
+            const subject = encodeURIComponent(`Message depuis le site — ${name}`);
+            const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            const mailto = `mailto:${owner}?subject=${subject}&body=${body}`;
+
+            // ouvre le client mail de l'utilisateur (enverra le message à la boîte du propriétaire)
+            window.location.href = mailto;
+
+            show(`Votre client mail va s'ouvrir. Si rien ne se passe, envoyez-le manuellement à ${owner}.`, 'success');
+
+            setTimeout(() => contactForm.reset(), 800);
+        });
+    }
 });
