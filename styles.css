@@ -700,6 +700,15 @@ footer {
     background-color: var(--white);
 }
 
+.contact-feedback {
+    min-height: 1.2em;
+    font-size: 0.95rem;
+    margin-top: -6px;
+    transition: opacity 0.2s ease;
+}
+.contact-feedback.success { color: var(--accent-color); }
+.contact-feedback.error { color: #ff9a9a; }
+
 /* Footer */
 footer {
     background-color: #0a111a;
