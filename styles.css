@@ -173,13 +173,6 @@ img {
     font-weight: 500;
 }
 
-/* Specific: make section headings use the same bold, attractive font */
-.section-title,
-.about-title {
-    font-family: 'Playfair Display', var(--font-heading);
-    font-weight: 700;
-}
-
 .separator-center {
     height: 3px;
     width: 80px;
@@ -288,22 +281,17 @@ img {
     padding-right: 20px; /* keep distance from theme button */
 }
 
-/* Top navigation — font + color updated */
-.navbar .nav-link {
-    font-family: 'Montserrat', sans-serif;
+.nav-link {
     font-weight: 600;
-    color: var(--accent-color);
+    color: var(--white);
     transition: var(--transition);
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.24);
 }
 
-.navbar .nav-link:hover,
-.navbar .nav-link:focus {
-    color: var(--white);
-    transform: translateY(-2px);
+.nav-link:hover {
+    color: var(--accent-color);
 }
 
 .btn-contact {
@@ -387,30 +375,18 @@ img {
     animation: shine 4s linear infinite;
     font-weight: 700;
 }
-
-/* Cursor + typed text styling for hero title */
-.type-cursor {
+.animated-title.typing::after {
+    content: '';
     display: inline-block;
     width: 2px;
-    height: 1.05em;
+    height: 1.1em;
+    margin-left: 8px;
     background: var(--accent-color);
-    margin-left: 0.6rem;
-    vertical-align: middle;
-    border-radius: 1px;
-    animation: blink 1s steps(1) infinite;
-    opacity: 0.95;
+    animation: blink 1s steps(2, start) infinite;
+    vertical-align: bottom;
 }
-@keyframes blink { 50% { opacity: 0; } }
-
-.animated-title #typed-title {
-    display: inline-block;
-    white-space: nowrap;
-    letter-spacing: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .type-cursor { animation: none; opacity: 0.9; }
-    .animated-title { animation: none; }
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 .hero-subtitle {
@@ -584,6 +560,27 @@ img {
     box-shadow: 0 36px 80px rgba(212,175,55,0.36), 0 0 44px rgba(212,175,55,0.22);
 }
 
+/* Gallery card wrapper + captions (kept visual layout unchanged) */
+.gallery-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.gallery-card .gallery-item {
+    width: 100%;
+}
+.gallery-caption {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 6px;
+    text-transform: none;
+    letter-spacing: 0.6px;
+}
+.gallery-card.is-hidden { opacity: 0; transform: scale(.98) translateY(8px); filter: blur(2px); transition: opacity .35s ease, transform .35s ease, filter .35s ease; pointer-events: none; }
+
 /* Footer - modern + reassurance scrolling band */
 .reassurance-banner {
     width: 100%;
@@ -620,6 +617,8 @@ footer {
     padding: 18px 0 28px;
     background: linear-gradient(180deg, #0a111a, #07080a);
     color: #cfcfcf;
+    /* subtle entrance for the footer area */
+    animation: footer-entrance .7s ease-out both;
 }
 .footer-inner {
     width: 100%;
@@ -633,6 +632,23 @@ footer {
 .footer-legal {
     font-size: 0.9rem;
     color: #9aa0a6;
+}
+.footer-legal p {
+    font-style: italic; /* render the copyright line in italic */
+    opacity: 0.98;
+    transition: transform .28s ease, opacity .28s ease;
+    /* gentle, non-intrusive floating animation */
+    animation: footer-legal-float 6s ease-in-out infinite;
+}
+
+/* Footer animations */
+@keyframes footer-legal-float {
+    0%, 100% { transform: translateY(0); opacity: 0.95; }
+    50% { transform: translateY(-6px); opacity: 1; }
+}
+@keyframes footer-entrance {
+    from { transform: translateY(8px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
 }
 
 @media (max-width: 768px) {
@@ -767,7 +783,7 @@ footer {
 
 /* Accessible reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-    .reveal, .gallery-item, .service-card, .hero-subtitle, .lightbox-content {
+    .reveal, .gallery-item, .service-card, .hero-subtitle, .lightbox-content, footer, .footer-legal p {
         transition: none !important;
         animation: none !important;
     }
