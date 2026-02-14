@@ -112,6 +112,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') openLightbox((lbIndex - 1 + galleryImgs.length) % galleryImgs.length);
   });
 
+  /* Typewriter for hero title (affiche lettre par lettre) */
+  const heroTitle = document.querySelector('.animated-title');
+  if (heroTitle) {
+    const fullTitle = heroTitle.textContent.trim();
+    heroTitle.textContent = '';
+    heroTitle.classList.add('typing');
+    let tIndex = 0;
+    const typeSpeed = 60;
+    (function typeChar() {
+      if (tIndex < fullTitle.length) {
+        heroTitle.textContent += fullTitle.charAt(tIndex++);
+        setTimeout(typeChar, typeSpeed);
+      } else {
+        heroTitle.classList.remove('typing');
+      }
+    })();
+  }
+
   /* -------------------------
      Hero subtitle rotating (fade)
      ------------------------- */
@@ -130,43 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // Typing effect for hero title (one-shot, accessible)
-  (function heroTyping() {
-    const titleWrap = document.querySelector('.animated-title');
-    const typedEl = document.getElementById('typed-title');
-    if (!titleWrap || !typedEl) return;
-    const full = titleWrap.dataset.text || "L'ÉLÉGANCE SUR MESURE";
-    const speed = 70; // ms per character (machine-like)
-    const startDelay = 350; // ms before typing starts
-
-    // Respect prefers-reduced-motion
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      typedEl.textContent = full;
-      return;
-    }
-
-    typedEl.textContent = '';
-    let i = 0;
-    const cursor = titleWrap.querySelector('.type-cursor');
-
-    setTimeout(() => {
-      const interval = setInterval(() => {
-        typedEl.textContent += full.charAt(i);
-        i++;
-        if (i >= full.length) {
-          clearInterval(interval);
-          // keep the cursor blinking; optionally reduce its opacity after a moment
-          setTimeout(() => { if (cursor) cursor.style.opacity = '0.9'; }, 300);
-        }
-      }, speed);
-    }, startDelay);
-  })();
-
   /* -------------------------
      Gallery filter (buttons injected in HTML)
      ------------------------- */
   const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
-  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-card'));
 
   function hideItem(item) {
     item.classList.add('is-hidden');
@@ -278,4 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
      ------------------------- */
   const preloader = document.getElementById('preloader');
   if (preloader) window.addEventListener('load', () => { preloader.style.opacity = '0'; setTimeout(() => preloader.style.display = 'none', 500); });
+
+  // Prefetch critical resources & warm image cache for snappier navigation (non-invasive)
+  (function warmCache(){
+    try{
+      ['styles.css','script.js'].forEach(u=>{ if (!document.querySelector(`link[rel="prefetch"][href="${u}"]`)) { const l=document.createElement('link'); l.rel='prefetch'; l.href=u; document.head.appendChild(l); } });
+      const imgs = Array.from(document.querySelectorAll('.gallery-item img, .profile-img'));
+      const imgLoader = () => imgs.forEach(img => { if (img && img.src) { const i = new Image(); i.src = img.src; } });
+      if ('requestIdleCallback' in window) requestIdleCallback(imgLoader, {timeout:1000}); else setTimeout(imgLoader, 1200);
+    }catch(e){/* silently ignore */}
+  })();
 });
