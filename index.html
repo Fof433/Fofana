@@ -1,80 +1,169 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatoumata - Styliste Modéliste</title>
-    <link rel="shortcut icon" href="image/logo m.png" type="image/x-icon">
-    <meta name="description" content="Atelier de création de robes de mariée et haute couture. FATOUMATA FOFANA, styliste modéliste.">
-    <meta name="keywords" content="Fatoumata Fofana, Styliste Modéliste, Robes de Mariée, Haute Couture, Création Sur Mesure, Abidjan, Côte d'Ivoire">
-    <meta name="owner" content="El Moustapha Fofana">
+    <meta name="description" content="Fatoumata Fofana - Styliste Modéliste. Créations élégantes et sur mesure. Diplômée de l'École de Mode Tidiane T.">
+    <title>Fatoumata Fofana | Styliste Modéliste</title>
+    
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
 
-    <nav class="navbar">
+    <header>
         <div class="container nav-container">
             <div class="logo">
-                <img src="image/logo m.png" alt="Fatoumata Styliste Logo">
+                <a href="#home">
+                    <img src="image/logo m.png" alt="Fatoumata Styliste Logo">
+                </a>
             </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Collections</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
 
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
-
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Accueil</a></li>
-                <li><a href="#about" class="nav-link">À Propos</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#gallery" class="nav-link">Collections</a></li>
-                <li class="contact-item"><a href="#contact" class="nav-link btn-contact">Contact</a></li>
-            </ul>
         </div>
-    </nav>
-
-    <header id="home" class="hero">
-        <div class="hero-content fade-in">
-            <h1 class="animated-title">L'ÉLÉGANCE SUR MESURE</h1>
-            <p class="hero-subtitle">signature de votre personnalité</p>
-            <p class="brand-name">Fatoumata Styliste Modéliste</p>
-            <a href="#gallery" class="cta-button">Découvrir mes créations</a>
-        </div>
-        <div class="hero-overlay"></div>
     </header>
 
-    <section id="about" class="section">
-        <div class="container about-container">
-            <div class="about-image reveal">
-                <img src="image/profile_fatoumata_new.jpg" alt="Fatoumata Fofana - Styliste Modéliste" class="profile-img">
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>L'Élégance sur mesure</h1>
+            <p>La signature de votre personnalité par Fatoumata Fofana</p>
+            <a href="#gallery" class="btn">Découvrir mes créations</a>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container about-wrapper">
+            <div class="about-image">
+                <img src="image/profile_fatoumata_new.jpg" alt="Fatoumata Fofana - Styliste">
             </div>
-            <div class="about-text reveal">
-                <h2 class="about-title">À Propos de Moi</h2>
-                <p>Je suis <strong>Fatoumata Fofana</strong>, styliste-modéliste professionnelle, diplômée d’un Brevet
-                    de Technicien (BT) en stylisme-modélisme à l’École de Mode Tidiane T, avec une passion pour la
-                    création de tenues élégantes et sur mesure.</p>
-                <p>Passionnée par la mode et l'art de la couture, je donne vie à vos rêves à travers des créations
-                    uniques et personnalisées. Chaque pièce est conçue avec une attention minutieuse aux détails.</p>
+            <div class="about-text">
+                <h2 class="section-title">À Propos de Moi</h2>
+                <p>Je suis <strong>Fatoumata Fofana</strong>, styliste-modéliste professionnelle.</p>
+                <p>Diplômée d’un Brevet de Technicien (BT) en stylisme-modélisme à l’<strong>École de Mode Tidiane T</strong>, je cultive une passion pour la création de tenues élégantes et sur mesure.</p>
+                <p>Passionnée par la mode et l'art de la couture, je donne vie à vos rêves à travers des créations uniques et personnalisées. Chaque pièce est conçue avec une attention minutieuse aux détails pour sublimer votre allure.</p>
             </div>
         </div>
     </section>
 
-    <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.querySelector('.nav-menu');
+    <section id="services" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title center-text">Mes Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h3>Création Sur Mesure</h3>
+                    <p>Conception unique adaptée à votre morphologie.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Confection Dame</h3>
+                    <p>Robes de soirée, tenues de ville et ensembles chics.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cut"></i>
+                    <h3>Retouches Pro</h3>
+                    <p>Ajustements parfaits pour vos vêtements favoris.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            navMenu.classList.toggle('active');
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="section-title center-text">Dernières Collections</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="image/profile_fatoumata_new.jpg" alt="Création Fatoumata">
+                    <div class="overlay">
+                        <h3>Élégance</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/profile_fatoumata_new.jpg" alt="Création Fatoumata">
+                    <div class="overlay">
+                        <h3>Style</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/profile_fatoumata_new.jpg" alt="Création Fatoumata">
+                    <div class="overlay">
+                        <h3>Tendance</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding bg-dark">
+        <div class="container contact-wrapper">
+            <div class="contact-info">
+                <h2>Contactez-moi</h2>
+                <p>Prête à réaliser votre tenue de rêve ?</p>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Abidjan, Côte d'Ivoire</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+225 07 00 00 00 00</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>contact@fatoumata.com</span>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form>
+                    <input type="text" name="nom" placeholder="Votre Nom" required>
+                    <input type="email" name="email" placeholder="Votre Email" required>
+                    <textarea name="message" rows="5" placeholder="Votre Message" required></textarea>
+                    <button type="submit" class="btn btn-submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 site créé par El Moustapha Fofana. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
         });
     </script>
 
