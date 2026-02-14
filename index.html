@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="image/logo m.png" as="image">
+    <link rel="preload" href="image/creation_1.jpg" as="image">
 
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for Icons -->
@@ -47,10 +49,7 @@
     <!-- Hero Section -->
     <header id="home" class="hero">
         <div class="hero-content fade-in">
-            <h1 class="animated-title" data-text="L'ÉLÉGANCE SUR MESURE" aria-label="L'ÉLÉGANCE SUR MESURE">
-                <span id="typed-title" aria-live="polite"></span><span class="type-cursor" aria-hidden="true"></span>
-                <noscript>L'ÉLÉGANCE SUR MESURE</noscript>
-            </h1>
+            <h1 class="animated-title">L'ÉLÉGANCE SUR MESURE</h1>
             <p class="hero-subtitle">signature de votre personnalité</p>
             <p class="brand-name">Fatoumata Styliste Modéliste</p>
             <a href="#gallery" class="cta-button">Découvrir mes créations</a>
@@ -62,7 +61,7 @@
     <section id="about" class="section">
         <div class="container about-container">
             <div class="about-image reveal">
-                <img src="image/profile_fatoumata_new.jpg" alt="Fatoumata Fofana - Styliste Modéliste" class="profile-img">
+                <img src="image/profile_fatoumata_new.jpg" alt="Fatoumata Fofana - Styliste Modéliste" class="profile-img" decoding="async">
             </div>
             <div class="about-text reveal">
                 <h2 class="about-title">À Propos de Moi</h2>
@@ -114,18 +113,42 @@
                 <button class="filter-btn active" data-filter="all" aria-pressed="true">Toutes</button>
                 <button class="filter-btn" data-filter="mariage">Mariage</button>
                 <button class="filter-btn" data-filter="soiree">Soirée</button>
-                <button class="filter-btn" data-filter="traditionnel">Mode</button>
+                <button class="filter-btn" data-filter="mode">Mode</button>
             </div>
 
             <div class="gallery-grid" aria-live="polite">
-                <div class="gallery-item" data-category="mariage"><img src="image/creation_1.jpg" alt="Robe de mariée élégante" loading="lazy"></div>
-                <div class="gallery-item" data-category="soiree"><img src="image/creation_2.jpg" alt="Robe de soirée satinée" loading="lazy"></div>
-                <div class="gallery-item" data-category="traditionnel"><img src="image/creation_3.jpg" alt="Tenue traditionnelle revisitée" loading="lazy"></div>
-                <div class="gallery-item" data-category="mariage"><img src="image/creation_4.jpg" alt="Robe de mariée moderne" loading="lazy"></div>
-                <div class="gallery-item" data-category="soiree"><img src="image/creation5.jpg" alt="Robe de cérémonie longue" loading="lazy"></div>
-                <div class="gallery-item" data-category="mariage"><img src="image/creation 6.jpg" alt="Détails de broderie" loading="lazy"></div>
-                <div class="gallery-item" data-category="traditionnel"><img src="image/creation 7.jpg" alt="Motifs traditionnels" loading="lazy"></div>
-                <div class="gallery-item" data-category="soiree"><img src="image/creation 8.jpg" alt="Robe de cocktail" loading="lazy"></div>
+                <div class="gallery-card" data-category="mariage">
+                    <div class="gallery-item"><img src="image/creation_1.jpg" alt="L'Audacieuse" loading="lazy" decoding="async"></div>
+                    <figcaption class="gallery-caption">L'Audacieuse</figcaption>
+                </div>
+                <div class="gallery-card" data-category="soiree">
+                    <div class="gallery-item"><img src="image/creation_2.jpg" alt="L'Authentique" loading="lazy" decoding="async"></div>
+                    <figcaption class="gallery-caption">L'Authentique</figcaption>
+                </div>
+                <div class="gallery-card" data-category="mode">
+                    <div class="gallery-item"><img src="image/creation_3.jpg" alt="L'Éclatante" loading="lazy" decoding="async"></div>
+                    <figcaption class="gallery-caption">L'Éclatante</figcaption>
+                </div>
+                <div class="gallery-card" data-category="mariage">
+                    <div class="gallery-item"><img src="image/creation_4.jpg" alt="La Lumineuse" loading="lazy" decoding="async"></div>
+                    <figcaption class="gallery-caption">La Lumineuse</figcaption>
+                </div>
+                <div class="gallery-card" data-category="soiree">
+                    <div class="gallery-item"><img src="image/creation5.jpg" alt="L'Originale" loading="lazy" decoding="async"></div>
+                    <figcaption class="gallery-caption">L'Originale</figcaption>
+                </div>
+                <div class="gallery-card" data-category="mariage">
+                    <div class="gallery-item"><img src="image/creation 6.jpg" alt="La Somptueuse" loading="lazy" decoding="async"></div>
+                    <figcaption class="gallery-caption">La Somptueuse</figcaption>
+                </div>
+                <div class="gallery-card" data-category="mode">
+                    <div class="gallery-item"><img src="image/creation 7.jpg" alt="La Liberté" loading="lazy" decoding="async"></div>
+                    <figcaption class="gallery-caption">La Liberté</figcaption>
+                </div>
+                <div class="gallery-card" data-category="soiree">
+                    <div class="gallery-item"><img src="image/creation 8.jpg" alt="L'Excellence" loading="lazy" decoding="async"></div>
+                    <figcaption class="gallery-caption">L'Excellence</figcaption>
+                </div>
             </div>
         </div>
     </section>
@@ -138,11 +161,10 @@
                 <p>Prête à créer votre prochaine tenue ? N'hésitez pas à me contacter.</p>
                 <ul class="contact-list">
                     <li><a href="tel:+2250586717452"><i class="fa-solid fa-phone"></i> +225 0586717452</a></li>
-                    <li><i class="fa-solid fa-envelope"></i> elianefatifofana@gmail.com</li>
+                    <li><i class="fa-solid fa-envelope"></i> <a href="mailto:elianefatifofana@gmail.com">elianefatifofana@gmail.com</a></li>
                     <li><i class="fa-solid fa-location-dot"></i> Abidjan,grand bassam,Côte d'Ivoire</li>
                 </ul>
                 <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://www.facebook.com/fofana.eliane.fati" target="_blank" rel="noopener" title="Fofana Eliane Fati"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://wa.me/2250586717452" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
@@ -174,7 +196,7 @@
             </div>
         </div>
         <div class="footer-legal">
-            <p>&copy; 2026 « Site créé par El Moustapha Fofana » — <em>Contact : +225 058444221 &amp; +225 0777823793</em></p>
+            <p>&copy; 2026 « Site créé par El Moustapha Fofana » — <em>Contact : +225 0584442211/+225 0777823793</em></p>
         </div>
         <div class="footer-social">
             <!-- Social icons removed as requested -->
